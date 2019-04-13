@@ -9,6 +9,11 @@ b:
   environment:
     VIRTUAL_HOST:  b.localhost
   restart: always
+c:
+  build: c
+  environment:
+    VIRTUAL_HOST: localhost
+  restart: always  
 
 nginx-proxy:
   image: jwilder/nginx-proxy
