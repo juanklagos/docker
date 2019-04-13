@@ -6,7 +6,7 @@ services:
           dockerfile: Dockerfile
           context: .
      environment:
-      VIRTUAL_HOST: b.localhost
+      VIRTUAL_HOST: b.serviya.co
      expose:
        - 80   
 networks:
