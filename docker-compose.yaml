@@ -32,5 +32,5 @@ nginx-proxy:
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
 
-  restart: always
+  restart: never
   privileged: true
