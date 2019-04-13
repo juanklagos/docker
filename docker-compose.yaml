@@ -1,7 +1,7 @@
 a:
   build: a
   environment:
-    VIRTUAL_HOST: a.localhost
+    VIRTUAL_HOST: a.serviya.co
   restart: always
   expose:
        - 80
@@ -9,26 +9,26 @@ a:
 b:
   build: b
   environment:
-    VIRTUAL_HOST:  b.localhost
+    VIRTUAL_HOST:  b.serviya.co
   restart: always
   expose:
        - 80
 c:
   build: c
   environment:
-    VIRTUAL_HOST: localhost
+    VIRTUAL_HOST: serviya.co
   restart: always  
   expose:
        - 80
-
+      
 nginx-proxy:
   image: jwilder/nginx-proxy
-  environment:
-    VIRTUAL_HOST: serviya.co
-    VIRTUAL_PORT: 80
   ports:
     - "80:80"
-    - "443:443"
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
   privileged: true
+networks:
+  default:
+    external:
+      name: nginx-proxy  
