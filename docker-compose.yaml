@@ -1,33 +1,35 @@
-a:
-  build: a
-  environment:
-    VIRTUAL_HOST: a.serviya.co
-  restart: always
-  expose:
-       - 80
+version: "3"
+services:
+  a:
+    build: a
+    environment:
+      VIRTUAL_HOST: a.serviya.co
+    restart: always
+    expose:
+        - 80
 
-b:
-  build: b
-  environment:
-    VIRTUAL_HOST:  b.serviya.co
-  restart: always
-  expose:
-       - 80
-c:
-  build: c
-  environment:
-    VIRTUAL_HOST: serviya.co
-  restart: always  
-  expose:
-       - 80
-      
-nginx-proxy:
-  image: jwilder/nginx-proxy
-  ports:
-    - "80:80"
-  volumes:
-    - /var/run/docker.sock:/tmp/docker.sock:ro
-    
+  b:
+    build: b
+    environment:
+      VIRTUAL_HOST:  b.serviya.co
+    restart: always
+    expose:
+        - 80
+  c:
+    build: c
+    environment:
+      VIRTUAL_HOST: serviya.co
+    restart: always  
+    expose:
+        - 80
+        
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
 networks:
   default:
     external:
