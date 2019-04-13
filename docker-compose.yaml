@@ -27,7 +27,6 @@ nginx-proxy:
     - "80:80"
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
-  privileged: true
 networks:
   default:
     external:
