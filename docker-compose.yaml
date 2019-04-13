@@ -1,37 +1,8 @@
 version: "3"
 services:
-  a:
-    build: a
-    environment:
-      VIRTUAL_HOST: a.serviya.co
-    restart: always
-    expose:
-        - 80
-    networks:
-      - default  
-
-  b:
-    build: b
-    environment:
-      VIRTUAL_HOST:  b.serviya.co
-    restart: always
-    expose:
-        - 80
-    networks:
-      - default      
-        
-  c:
-    build: c
-    environment:
-      VIRTUAL_HOST: serviya.co
-    restart: always  
-    expose:
-        - 80
-    networks:
-      - default      
-        
   nginx-proxy:
     image: jwilder/nginx-proxy
+    container_name: nginx-proxy
     ports:
       - "80:80"
     volumes:
@@ -40,4 +11,4 @@ services:
 networks:
   default:
     external:
-      name: nginx-proxy  
+      name: nginx-proxy
