@@ -31,6 +31,4 @@ nginx-proxy:
     - "443:443"
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
-
-  restart: never
   privileged: true
