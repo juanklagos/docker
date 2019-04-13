@@ -3,17 +3,23 @@ a:
   environment:
     VIRTUAL_HOST: a.localhost
   restart: always
+  expose:
+       - 80
 
 b:
   build: b
   environment:
     VIRTUAL_HOST:  b.localhost
   restart: always
+  expose:
+       - 80
 c:
   build: c
   environment:
     VIRTUAL_HOST: localhost
   restart: always  
+  expose:
+       - 80
 
 nginx-proxy:
   image: jwilder/nginx-proxy
