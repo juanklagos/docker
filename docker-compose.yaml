@@ -1,10 +1,11 @@
 version: "3"
 services:
   nginx-proxy:
-    image: jwilder/nginx-proxy
+    image: jwilder/nginx-proxy:alpine
     container_name: nginx-proxy
     ports:
       - "80:80"
+      - "433:433"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
